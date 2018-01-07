@@ -1,0 +1,5 @@
+exclude:
+- /cereal/.*
+component_depth: 1
+languages:
+- cpp
