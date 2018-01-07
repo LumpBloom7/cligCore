@@ -84,10 +84,10 @@ namespace cligCore {
                   const bool &backEnabled ) // Creates a menu without using the nCurses library, not likely to be
   // efficient. Still needs linux code.
   {
-    core::clear();
+    cligCore::clear();
     int numberOfOptions = menuContent.size() - 1;
     int pointerCoord = 0;
-    core::clear();
+    cligCore::clear();
     std::cout << termcolor::bold << termcolor::underline << title << termcolor::reset << std::endl;
 
     for ( int a = 0; a < menuContent.size(); a++ ) {
@@ -100,7 +100,7 @@ namespace cligCore {
       case Keys::up: {
         pointerCoord--;
         if ( pointerCoord < 0 ) { pointerCoord = numberOfOptions; }
-        core::clear();
+        cligCore::clear();
         std::cout << termcolor::bold << termcolor::underline << title << termcolor::reset << std::endl;
         for ( int a = 0; a < menuContent.size(); a++ ) {
           if ( pointerCoord == a ) { std::cout << termcolor::on_grey; }
@@ -111,7 +111,7 @@ namespace cligCore {
       case Keys::down: {
         pointerCoord++;
         if ( pointerCoord > numberOfOptions ) { pointerCoord = 0; }
-        core::clear();
+        cligCore::clear();
         std::cout << termcolor::bold << termcolor::underline << title << termcolor::reset << std::endl;
         for ( int a = 0; a < menuContent.size(); a++ ) {
           if ( pointerCoord == a ) { std::cout << termcolor::on_grey; }
