@@ -1,0 +1,6 @@
+exclude:
+- /cereal/.*
+- termcolor.hpp
+component_depth: 1
+languages:
+- cpp

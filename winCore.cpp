@@ -2,8 +2,8 @@
 #include <limits.h>
 
 namespace cligCore {
-  namespace console {
 
+  namespace console {
     int getConsoleWidth() // Used to get the current Width of the console window
     {
       CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -46,7 +46,7 @@ namespace cligCore {
       toggleEcho( true );
       return password;
     }
-  }
+  } // namespace console
 
   void clear() // This is used to clear the screen and reset any formatting changes.
   {
@@ -79,74 +79,27 @@ namespace cligCore {
       return Keys::extended;
     }
   }
-  Keys getKeyInput( bool delayed ) {
-    if ( delayed ) {
-      GetAsyncKeyState( VK_DOWN );
-      GetAsyncKeyState( VK_UP );
-      GetAsyncKeyState( VK_LEFT );
-      GetAsyncKeyState( VK_RIGHT );
-      GetAsyncKeyState( VK_RETURN );
-      GetAsyncKeyState( VK_ESCAPE );
-    }
-    if ( GetAsyncKeyState( VK_DOWN ) & SHRT_MAX ) {
-      return Keys::down;
-    } else if ( GetAsyncKeyState( VK_UP ) & SHRT_MAX ) {
-      return Keys::up;
-    } else if ( GetAsyncKeyState( VK_LEFT ) & SHRT_MAX ) {
-      return Keys::left;
-    } else if ( GetAsyncKeyState( VK_RIGHT ) & SHRT_MAX ) {
-      return Keys::right;
-    } else if ( GetAsyncKeyState( VK_RETURN ) & SHRT_MAX ) {
-      return Keys::enter;
-    } else if ( GetAsyncKeyState( VK_ESCAPE ) & SHRT_MAX ) {
-      return Keys::escape;
-    } else {
-      return Keys::extended;
-    }
-  }
   int createMenu( const std::string &title, const std::vector<std::string> &menuContent, const bool &backEnabled ) {
-    cligCore::clear();
-    int numberOfOptions = menuContent.size() - 1;
-    int pointerCoord = 0;
-    cligCore::clear();
-    std::cout << title << termcolor::reset << std::endl;
+    int numberOfOptions = menuContent.size() - 1, pointerCoord = 0;
 
-    for ( int a = 0; a < menuContent.size(); a++ ) {
-      if ( pointerCoord == a ) { std::cout << termcolor::green << "> "; }
-      std::cout << menuContent[ a ] << termcolor::reset << std::endl;
-    }
+    printMenu( title, menuContent, pointerCoord);
     bool failcheck{};
     while ( true ) {
       if ( not failcheck ) {
-        GetAsyncKeyState( VK_DOWN );
-        GetAsyncKeyState( VK_UP );
-        GetAsyncKeyState( VK_LEFT );
-        GetAsyncKeyState( VK_RIGHT );
-        GetAsyncKeyState( VK_RETURN );
-        GetAsyncKeyState( VK_ESCAPE );
-        failcheck = true;
+        getKeyInput();
+        failcheck++;
       }
       switch ( getKeyInput() ) {
       case Keys::up: {
         pointerCoord--;
         if ( pointerCoord < 0 ) { pointerCoord = numberOfOptions; }
-        cligCore::clear();
-        std::cout << title << termcolor::reset << std::endl;
-        for ( int a = 0; a < menuContent.size(); a++ ) {
-          if ( pointerCoord == a ) { std::cout << termcolor::green << "> "; }
-          std::cout << menuContent[ a ] << termcolor::reset << std::endl;
-        }
+        printMenu( title, menuContent, pointerCoord);
         break;
       }
       case Keys::down: {
         pointerCoord++;
         if ( pointerCoord > numberOfOptions ) { pointerCoord = 0; }
-        cligCore::clear();
-        std::cout << title << termcolor::reset << std::endl;
-        for ( int a = 0; a < menuContent.size(); a++ ) {
-          if ( pointerCoord == a ) { std::cout << termcolor::green << "> "; }
-          std::cout << menuContent[ a ] << termcolor::reset << std::endl;
-        }
+        printMenu( title, menuContent, pointerCoord);
         break;
       }
       case Keys::enter: {
@@ -159,4 +112,12 @@ namespace cligCore {
     }
     return -1;
   }
-}
+  void printMenu( const std::string &title, const std::vector<std::string> &menuContent, int pointerCoord ) {
+    cligCore::clear();
+    std::cout << title << termcolor::reset << std::endl;
+    for ( int a = 0; a < menuContent.size(); a++ ) {
+      if ( pointerCoord == a ) { std::cout << termcolor::green << "> "; }
+      std::cout << menuContent[ a ] << termcolor::reset << std::endl;
+    }
+  }
+} // namespace cligCore

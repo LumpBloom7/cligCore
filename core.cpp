@@ -19,5 +19,5 @@ namespace cligCore {
       struct stat buffer;
       return ( stat( fileName.c_str(), &buffer ) == 0 );
     }
-  }
-}
+  } // namespace filesystem
+} // namespace cligCore
