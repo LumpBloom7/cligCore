@@ -15,8 +15,6 @@ namespace cligCore {
   enum Keys { up = 0, down = 1, left = 2, right = 3, enter = 4, escape = 5, extended = 6 };
   Keys getKeyInput();
   Keys getKeyInput( bool delayed );
-  void save();  // Serialize namespace player
-  int load();   // Deserialize namespace player
   void clear(); // This is used to clear the screen and reset any formatting changes.
   int createMenu( const std::string &title, const std::vector<std::string> &menuContent,
                   const bool &backEnabled ); // Creates a menu without using the nCurses library, not likely to be
