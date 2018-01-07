@@ -87,7 +87,7 @@ namespace cligCore {
     while ( true ) {
       if ( not failcheck ) {
         getKeyInput();
-        failcheck++;
+        failcheck = true;
       }
       switch ( getKeyInput() ) {
       case Keys::up: {
