@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Compilation batch files
+*.bat
+
+# .vscode files
+*.vscode
