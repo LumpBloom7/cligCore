@@ -2,9 +2,8 @@
 
 #include <fstream>
 #include <sys/stat.h>
-#include "cereal/types/vector.hpp"
-#include "cereal/types/string.hpp"
-#include "cereal/archives/json.hpp"
+
+#include "termcolor.hpp"
 
 // Includes platform specific implementations
 #if defined( _WIN32 ) || defined( _WIN64 )
