@@ -55,7 +55,6 @@ namespace cligCore {
       case 75: return Keys::left;
       case 77: return Keys::right;
       case 80: return Keys::down;
-      default: return Keys::extended;
       }
     }
   }
@@ -92,7 +91,7 @@ namespace cligCore {
     }
     return -1;
   }
-  void printMenu( const std::string &title, const std::vector<std::string> &menuContent, int pointerCoord) {
+  void printMenu( const std::string &title, const std::vector<std::string> &menuContent, int pointerCoord ) {
     cligCore::clear();
     std::cout << termcolor::bold << termcolor::underline << title << termcolor::reset << std::endl;
     for ( int a = 0; a < menuContent.size(); a++ ) {

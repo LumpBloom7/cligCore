@@ -2,7 +2,6 @@
 #include <limits.h>
 
 namespace cligCore {
-
   namespace console {
     int getConsoleWidth() // Used to get the current Width of the console window
     {
@@ -75,14 +74,11 @@ namespace cligCore {
       return Keys::enter;
     } else if ( GetAsyncKeyState( VK_ESCAPE ) & SHRT_MAX ) {
       return Keys::escape;
-    } else {
-      return Keys::extended;
     }
   }
   int createMenu( const std::string &title, const std::vector<std::string> &menuContent, const bool &backEnabled ) {
     int numberOfOptions = menuContent.size() - 1, pointerCoord = 0;
-
-    printMenu( title, menuContent, pointerCoord);
+    printMenu( title, menuContent, pointerCoord );
     bool failcheck{};
     while ( true ) {
       if ( not failcheck ) {
@@ -93,13 +89,13 @@ namespace cligCore {
       case Keys::up: {
         pointerCoord--;
         if ( pointerCoord < 0 ) { pointerCoord = numberOfOptions; }
-        printMenu( title, menuContent, pointerCoord);
+        printMenu( title, menuContent, pointerCoord );
         break;
       }
       case Keys::down: {
         pointerCoord++;
         if ( pointerCoord > numberOfOptions ) { pointerCoord = 0; }
-        printMenu( title, menuContent, pointerCoord);
+        printMenu( title, menuContent, pointerCoord );
         break;
       }
       case Keys::enter: {
