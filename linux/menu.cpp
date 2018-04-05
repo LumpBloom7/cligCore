@@ -8,23 +8,23 @@ namespace cligCore {
       printMenu( title, menuContent, pointerCoord, 0 );
       bool failcheck{};
       while ( true ) {
-        switch ( getArrowInput() ) {
-        case Keys::up: {
+        switch ( cligCore::input::getArrowInput() ) {
+        case cligCore::input::Keys::up: {
           if ( pointerCoord < 0 ) { pointerCoord = numberOfOptions; }
           pointerCoord--;
           printMenu( title, menuContent, pointerCoord, -1 );
           break;
         }
-        case Keys::down: {
+        case cligCore::input::Keys::down: {
           pointerCoord++;
           if ( pointerCoord > numberOfOptions ) { pointerCoord = 0; }
           printMenu( title, menuContent, pointerCoord, +1 );
           break;
         }
-        case Keys::enter: {
+        case cligCore::input::Keys::enter: {
           return pointerCoord;
         }
-        case Keys::escape: {
+        case cligCore::input::Keys::escape: {
           if ( backEnabled ) { return -1 };
         }
         }

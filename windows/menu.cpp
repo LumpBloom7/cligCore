@@ -6,26 +6,26 @@ namespace cligCore {
       bool failcheck{};
       while ( true ) {
         if ( not failcheck ) {
-          getKeyInput();
+          cligCore::input::getKeyInput();
           failcheck = true;
         }
-        switch ( getKeyInput() ) {
-        case Keys::up: {
+        switch ( cligCore::input::getKeyInput() ) {
+        case cligCore::input::Keys::up: {
           pointerCoord--;
           if ( pointerCoord < 0 ) { pointerCoord = numberOfOptions; }
           printMenu( title, menuContent, pointerCoord );
           break;
         }
-        case Keys::down: {
+        case cligCore::input::Keys::down: {
           pointerCoord++;
           if ( pointerCoord > numberOfOptions ) { pointerCoord = 0; }
           printMenu( title, menuContent, pointerCoord );
           break;
         }
-        case Keys::enter: {
+        case cligCore::input::Keys::enter: {
           return pointerCoord;
         }
-        case Keys::escape: {
+        case cligCore::input::Keys::escape: {
           if ( backEnabled ) { return -1; }
         }
         }
