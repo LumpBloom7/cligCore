@@ -1,6 +1,7 @@
 namespace cligCore {
   namespace input {
     Keys getKeyInput() {
+#if defined( _WIN32 ) || defined( _WIN64 )
       bool delayed = false;
       if ( delayed ) {
         GetAsyncKeyState( VK_DOWN );
@@ -25,6 +26,23 @@ namespace cligCore {
       } else {
         return Keys::extended;
       }
+
+#elif defined( __unix__ ) || defined( __unix )
+      int input;
+      input = getch();
+      switch ( input ) // lets just waste the value
+      {
+      case 0:
+      case 224:
+        switch ( getch() ) // Here the actual code for the key is got
+        {
+        case 72: return Keys::up;
+        case 75: return Keys::left;
+        case 77: return Keys::right;
+        case 80: return Keys::down;
+        }
+      }
+#endif
     }
   } // namespace input
 } // namespace cligCore
