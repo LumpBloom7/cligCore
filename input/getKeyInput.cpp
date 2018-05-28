@@ -2,15 +2,6 @@ namespace cligCore {
   namespace input {
     Keys getKeyInput() {
 #if defined( _WIN32 ) || defined( _WIN64 )
-      bool delayed = false;
-      if ( delayed ) {
-        GetAsyncKeyState( VK_DOWN );
-        GetAsyncKeyState( VK_UP );
-        GetAsyncKeyState( VK_LEFT );
-        GetAsyncKeyState( VK_RIGHT );
-        GetAsyncKeyState( VK_RETURN );
-        GetAsyncKeyState( VK_ESCAPE );
-      }
       if ( GetAsyncKeyState( VK_DOWN ) & SHRT_MAX ) {
         return Keys::down;
       } else if ( GetAsyncKeyState( VK_UP ) & SHRT_MAX ) {
