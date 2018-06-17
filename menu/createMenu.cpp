@@ -36,6 +36,8 @@ namespace cligCore {
           break;
         }
         case cligCore::input::Keys::enter: {
+          std::string discard;
+          std::getline( std::cin, discard );
           return pointerCoord;
         }
         case cligCore::input::Keys::escape: {
