@@ -5,19 +5,25 @@ namespace cligCore {
       Range( int value1, int value2 ) {
         // Differentiate the smaller value from the bigger value to ease processing and to avoid any potential bugs.
         if ( value1 <= value2 ) {
-          lower = value1;
-          upper = value2;
+          _lower = value1;
+          _upper = value2;
         } else {
-          lower = value2;
-          upper = value1;
+          _lower = value2;
+          _upper = value1;
         }
       }
-      Range() : lower( 0 ), upper( 1 ) {}
-      int getLower() { return lower; }
-      int getUpper() { return upper; }
+      Range() : _lower( 0 ), _upper( 1 ) {}
+      int getLower() { return _lower; }
+      int getUpper() { return _upper; }
+      void setLower( int value ) { _lower = value; }
+      void setUpper( int value ) { _upper = value; }
+      void shift( int value ) {
+        _lower += value;
+        _upper += value;
+      }
 
     private:
-      int lower, upper;
+      int _lower, _upper;
     };
   } // namespace types
 } // namespace cligCore
