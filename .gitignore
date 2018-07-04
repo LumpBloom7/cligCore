@@ -31,8 +31,6 @@
 *.out
 *.app
 
-# Compilation batch files
-*.bat
-
 # .vscode files
-*.vscode
+*.vscode/c_cpp_properties.json
+*.vscode/settings.json
