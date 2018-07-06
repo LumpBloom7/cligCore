@@ -90,7 +90,6 @@ void cligCore::types::Menu::_printMenu() {
   _updateMenu();
   cligCore::console::clear();
   std::cout << termcolor::underline << _title << termcolor::reset << std::endl;
-  int windowHeight = cligCore::console::getConsoleHeight();
   if ( _visibleRange.getLower() > 0 )
     std::cout << termcolor::magenta << "[ MORE ABOVE ]" << std::endl << termcolor::reset;
   for ( int i = _visibleRange.getLower(); i < _visibleRange.getUpper(); i++ ) {
