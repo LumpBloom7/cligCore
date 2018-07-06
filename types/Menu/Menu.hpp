@@ -5,7 +5,7 @@ namespace cligCore {
   namespace types {
     class Menu {
     public:
-      Menu( std::vector<std::string> &menuContent, std::string title = "Menu", int pointerLocation = 0 );
+      Menu( std::vector<std::string> &menuContent, char title[], int pointerLocation = 0 );
       int show();
 
     private:
