@@ -1,6 +1,6 @@
 namespace cligCore {
   namespace control {
-    int rangeChooser( int originalValue, std::string title, types::Range range ) {
+    int rangeChooser( int originalValue, std::string &title, types::Range range ) {
       cligCore::console::clear();
       int lower = range.getLower();
       int upper = range.getUpper();
