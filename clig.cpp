@@ -20,9 +20,8 @@
 #include <unistd.h>
 #endif
 
-#include "types/_types.cpp"
+#include "types/types.cpp"
 #include "console/_console.cpp"
 #include "filesystem/_filesystem.cpp"
 #include "input/_input.cpp"
 #include "controls/_controls.cpp"
-#include "menu/_menu.cpp"
