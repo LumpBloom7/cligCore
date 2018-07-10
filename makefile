@@ -2,16 +2,21 @@
 # Makefile created by Dev-C++ 5.11
 BASH     = $(GITDIR)/usr/bin
 GIT      = $(GITDIR)/bin/git.exe
+
+INCDIR   = $(PROJECTDIR)/include/
+DEPDIR   = $(PROJECTDIR)/dep/
+SRCDIR   = $(PROJECTDIR)/src/
+
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
 strip    = strip.exe
-OBJ      = $(PROJECTDIR)/obj/main.o
-LINKOBJ  = $(PROJECTDIR)/obj/main.o
+OBJ      = $(PROJECTDIR)/build/main.o
+LINKOBJ  = $(PROJECTDIR)/build/main.o
 #-static-libstdc++ -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic
 LIBS     = -g3 -static-libgcc -static-libstdc++ -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic
 INCS     =
-CXXINCS  = -I $(PROJECTDIR)/include/
+CXXINCS  = -I $(INCDIR) -I $(DEPDIR)
 OUTPUTDIR = $(PROJECTDIR)/bin/
 BIN      = $(OUTPUTDIR)/Output.exe
 CXXFLAGS = $(CXXINCS) $(GITDETAILS) -Ofast -std=c++17 -w -Wall -Wextra -pedantic
@@ -42,5 +47,5 @@ object: $(OBJ)
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-$(OBJ): $(PROJECTDIR)/main.cpp
-	$(CPP) -c $(PROJECTDIR)/main.cpp -o $(OBJ) $(CXXFLAGS)
+$(OBJ): $(SRCDIR)/main.cpp
+	$(CPP) -c $(SRCDIR)/main.cpp -o $(OBJ) $(CXXFLAGS)
