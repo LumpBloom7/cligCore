@@ -24,17 +24,6 @@ namespace cligCore {
     Keys getKeyInput();
   } // namespace input
 
-  namespace menu {
-    int createMenu( const std::string &title, const std::vector<std::string> &menuContent,
-                    const bool &backEnabled ); // Creates a menu without using the nCurses library, not likely to be
-                                               // efficient. Still needs linux code.
-    void printMenu( const std::string &title, const std::vector<std::string> &menuContent, int pointerCoord );
-  } // namespace menu
-
-  namespace control {
-    int rangeChooser( int originalValue );
-  }
-
 } // namespace cligCore
 
 #endif // CORE_H
