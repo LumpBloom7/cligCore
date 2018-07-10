@@ -1,5 +1,9 @@
 #include "Menu.hpp"
 
+cligCore::types::Menu::Menu( std::vector<std::string> &menuContent, std::string &title, int pointerLocation )
+    : _menuContent( menuContent ), _title( title ), _pointerLocation( pointerLocation ) {
+  _updateMenu();
+}
 cligCore::types::Menu::Menu( std::vector<std::string> &menuContent, char title[], int pointerLocation )
     : _menuContent( menuContent ), _title( title ), _pointerLocation( pointerLocation ) {
   _updateMenu();
