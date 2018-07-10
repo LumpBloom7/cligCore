@@ -1,6 +1,6 @@
 #include "Range.hpp"
 
-cligCore::types::Range::Range() : _lower( 0 ), _upper( 10 ) {}
+cligCore::types::Range::Range() : _lower( 0 ), _upper( 10 ), _current( 0 ), _isSelectable( false ) {}
 cligCore::types::Range::Range( int lowerBounds, int upperBounds, bool isSelectable ) {
   // Differentiate the smaller value from the bigger value to ease processing and to avoid any potential bugs.
   if ( lowerBounds <= upperBounds ) {
@@ -10,13 +10,25 @@ cligCore::types::Range::Range( int lowerBounds, int upperBounds, bool isSelectab
     _lower = upperBounds;
     _upper = lowerBounds;
   }
+  if ( isSelectable ) {
+    _isSelectable = true;
+    _current = _lower;
+  }
 }
 cligCore::types::Range::Range( int lowerBounds, int upperBounds, int currentVal ) {
-  Range( lowerBounds, upperBounds );
-  if ( currentVal >= lowerBounds && currentVal <= upperBounds ) {
-    _current = currentVal;
-    _gotCurrent = true;
+  // Differentiate the smaller value from the bigger value to ease processing and to avoid any potential bugs.
+  if ( lowerBounds <= upperBounds ) {
+    _lower = lowerBounds;
+    _upper = upperBounds;
+  } else {
+    _lower = upperBounds;
+    _upper = lowerBounds;
   }
+  _isSelectable = true;
+  if ( currentVal >= _lower && currentVal <= _upper )
+    _current = currentVal;
+  else
+    _current = _lower;
 }
 int cligCore::types::Range::getLower() { return _lower; }
 int cligCore::types::Range::getUpper() { return _upper; }

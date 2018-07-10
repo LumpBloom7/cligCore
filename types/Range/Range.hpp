@@ -20,7 +20,7 @@ namespace cligCore {
     private:
       int _current;
       int _lower, _upper;
-      bool _gotCurrent = false;
+      bool _isSelectable = false;
     };
   } // namespace types
 } // namespace cligCore
