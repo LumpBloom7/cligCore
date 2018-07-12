@@ -1,3 +1,5 @@
+#include "clig.hpp"
+
 namespace cligCore {
   namespace console {
 
@@ -15,10 +17,10 @@ namespace cligCore {
       FillConsoleOutputAttribute( console, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE,
                                   screen.dwSize.X * screen.dwSize.Y, topLeft, &written );
       SetConsoleCursorPosition( console, topLeft );
-      std::cout << termcolor::reset;
+      std::cout << rang::style::reset;
 #elif defined( __unix__ ) || defined( __unix )
       std::cout << "\x1B[2J\x1B[H";
-      std::cout << termcolor::reset;
+      std::cout << style::reset;
 #endif
     }
   } // namespace console

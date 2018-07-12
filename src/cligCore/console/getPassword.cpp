@@ -1,3 +1,5 @@
+#include "clig.hpp"
+
 namespace cligCore {
   namespace console {
     std::string

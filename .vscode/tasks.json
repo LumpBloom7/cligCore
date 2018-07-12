@@ -66,6 +66,27 @@
                     "fileLocation": "absolute"
                 }
             ]
+        },
+        {
+            "label": "Create release",
+            "type": "shell",
+            "command": "build",
+            "args": [
+                "createRelease"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                {
+                    "base": "$gcc",
+                    "fileLocation": "absolute"
+                }
+            ]
         }
     ]
 }

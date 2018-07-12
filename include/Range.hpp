@@ -1,5 +1,6 @@
 #ifndef RANGE_HPP
 #define RANGE_HPP
+#include "clig.hpp"
 
 namespace cligCore {
   namespace types {

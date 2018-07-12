@@ -1,4 +1,4 @@
-#include "Menu.hpp"
+#include "clig.hpp"
 
 cligCore::types::Menu::Menu( std::vector<std::string> &menuContent, std::string &title, int pointerLocation )
     : _menuContent( menuContent ), _title( title ), _pointerLocation( pointerLocation ) {
@@ -93,15 +93,15 @@ void cligCore::types::Menu::_updateMenu() {
 void cligCore::types::Menu::_printMenu() {
   _updateMenu();
   cligCore::console::clear();
-  std::cout << termcolor::underline << _title << termcolor::reset << std::endl;
+  std::cout << rang::style::underline << _title << rang::style::reset << std::endl;
   if ( _visibleRange.getLower() > 0 )
-    std::cout << termcolor::magenta << "[ MORE ABOVE ]" << std::endl << termcolor::reset;
+    std::cout << rang::fg::magenta << "[ MORE ABOVE ]" << std::endl << rang::style::reset;
   for ( int i = _visibleRange.getLower(); i < _visibleRange.getUpper(); i++ ) {
-    if ( _pointerLocation == i ) std::cout << termcolor::green << std::flush;
+    if ( _pointerLocation == i ) std::cout << rang::fg::green << std::flush;
     std::cout << _menuContent[ i ] << std::flush;
     if ( i < _visibleRange.getUpper() - 1 ) std::cout << std::endl;
-    std::cout << termcolor::reset << std::flush;
+    std::cout << rang::style::reset << std::flush;
   }
   if ( _visibleRange.getUpper() < _menuContent.size() )
-    std::cout << std::endl << termcolor::magenta << "[ MORE BELOW ]" << std::flush;
+    std::cout << std::endl << rang::fg::magenta << "[ MORE BELOW ]" << std::flush;
 };

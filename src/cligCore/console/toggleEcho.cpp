@@ -1,3 +1,5 @@
+#include "clig.hpp"
+
 namespace cligCore {
   namespace console {
     void toggleEcho( const bool &enable ) // Stops the console from printing anything if disabled.

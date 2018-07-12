@@ -1,3 +1,4 @@
+#include "clig.hpp"
 namespace cligCore {
   namespace filesystem {                           // Functions used to read and modify the file system of the user.
     bool fileExists( const std::string &fileName ) // Used to check if a certain file exists with a certain directory

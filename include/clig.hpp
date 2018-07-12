@@ -1,16 +1,40 @@
 #ifndef CLIGCORE_H
 #define CLIGCORE_H
 
+#include "rang.hpp"
+
+#include <fstream>
+#include <sys/stat.h>
+
+#include <string>
+#include <vector>
+#include <chrono>
+#include <thread>
+
+#include <algorithm>
+
+// Includes platform specific headers
+#if defined( _WIN32 ) || defined( _WIN64 )
+#include "windows.h"
+#include <limits.h>
+#elif defined( __unix__ ) || defined( __unix )
+#include <sys/ioctl.h>
+#include <termios.h>
+#include <cstdlib>
+#include <unistd.h>
+#endif
+
+#include "Range.hpp"
+#include "Menu.hpp"
+
 namespace cligCore {
-  namespace types {
-    class Range;
-  }
 
   namespace filesystem {                            // Functions used to read and modify the file system of the user.
     bool fileExists( const std::string &fileName ); // Used to check if a certain file exists with a certain directory
   }
 
   namespace console {
+    void debug();
     int getConsoleWidth();                 // Used to get the current Width of the console window
     int getConsoleHeight();                // Used to get the current Height of the console window
     void toggleEcho( const bool &enable ); // Stops the console from printing anything if disabled.

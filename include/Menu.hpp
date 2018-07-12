@@ -1,5 +1,6 @@
 #ifndef MENU_HPP
 #define MENU_HPP
+#include "clig.hpp"
 
 namespace cligCore {
   namespace types {
