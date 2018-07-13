@@ -1,9 +1,5 @@
 #include "clig.hpp"
 
-#include <iostream>
-#include <string>
-#include <vector>
-
 int main() {
   std::ios_base::sync_with_stdio( false ); // Reduces flashing, but introduces other graphical oddities.
 
