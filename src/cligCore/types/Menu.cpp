@@ -9,7 +9,6 @@ cligCore::types::Menu::Menu( std::vector<std::string> &menuContent, char title[]
   _updateMenu();
 }
 int cligCore::types::Menu::show() {
-#if defined( _WIN32 ) || defined( _WIN64 )
   int numberOfOptions = _menuContent.size() - 1;
   _printMenu();
   bool failcheck{};
@@ -31,39 +30,11 @@ int cligCore::types::Menu::show() {
       return _pointerLocation;
     }
     case cligCore::input::Keys::escape: {
-      // if ( backEnabled ) { return -1; }break;
+      return -1;
     }
     }
   }
-  return -1;
-#elif defined( __unix__ ) || defined( __unix )
-  int numberOfOptions = _menuContent.size() - 1, _pointerLocation = 0;
-  _printMenu();
-  bool failcheck{};
-  while ( true ) {
-    switch ( cligCore::input::getArrowInput() ) {
-    case cligCore::input::Keys::up: {
-      if ( _pointerLocation < 0 ) { _pointerLocation = numberOfOptions; }
-      _pointerLocation--;
-      _printMenu();
-      break;
-    }
-    case cligCore::input::Keys::down: {
-      _pointerLocation++;
-      if ( _pointerLocation > numberOfOptions ) { _pointerLocation = 0; }
-      _printMenu();
-      break;
-    }
-    case cligCore::input::Keys::enter: {
-      return _pointerLocation;
-    }
-    case cligCore::input::Keys::escape: {
-      if ( backEnabled ) { return -1 };
-    }
-    }
-  }
-  return -1;
-#endif
+  return -2;
 }
 
 void cligCore::types::Menu::_updateMenu() {
