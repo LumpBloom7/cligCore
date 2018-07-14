@@ -14,10 +14,6 @@ int cligCore::types::Menu::show() {
   _printMenu();
   bool failcheck{};
   while ( true ) {
-    if ( not failcheck ) {
-      cligCore::input::getKeyInput();
-      failcheck = true;
-    }
     switch ( cligCore::input::getKeyInput() ) {
     case cligCore::input::Keys::up: {
       _pointerLocation--;
@@ -32,8 +28,6 @@ int cligCore::types::Menu::show() {
       break;
     }
     case cligCore::input::Keys::enter: {
-      std::string discard;
-      std::getline( std::cin, discard );
       return _pointerLocation;
     }
     case cligCore::input::Keys::escape: {
