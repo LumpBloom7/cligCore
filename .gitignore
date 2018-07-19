@@ -32,5 +32,8 @@
 *.app
 
 # .vscode files
-*.vscode/c_cpp_properties.json
-*.vscode/settings.json
+.vscode/c_cpp_properties.json
+.vscode/settings.json
+build/
+bin/
+release/

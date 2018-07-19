@@ -1,4 +1,4 @@
-#include "Range.hpp"
+#include "clig.hpp"
 
 cligCore::types::Range::Range() : _lower( 0 ), _upper( 10 ), _current( 0 ), _isSelectable( false ) {}
 cligCore::types::Range::Range( int lowerBounds, int upperBounds, bool isSelectable ) {
