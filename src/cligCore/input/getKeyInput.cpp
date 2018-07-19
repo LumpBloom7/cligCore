@@ -1,9 +1,7 @@
 #include "clig.hpp"
 #include <conio.h>
 cligCore::input::Keys cligCore::input::getKeyInput() {
-  int input;
-  input = getch();
-  switch ( input ) {
+  switch ( getch() ) {
   case 8: return Keys::Backspace;
   case 9: return Keys::Tab;
   case 13: return Keys::Return;

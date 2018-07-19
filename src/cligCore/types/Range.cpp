@@ -56,22 +56,22 @@ void cligCore::types::Range::showChooser( std::string &title ) {
       failsafe = true;
     }
     switch ( cligCore::input::getKeyInput() ) {
-    case cligCore::input::Keys::right: {
+    case cligCore::input::Keys::Right: {
       if ( current < _upper ) current++;
 
       std::cout << " < " << current << " > \r" << std::flush;
       break;
     }
-    case cligCore::input::Keys::left: {
+    case cligCore::input::Keys::Left: {
       if ( current > _lower ) current--;
 
       std::cout << " < " << current << " > \r" << std::flush;
       break;
     }
-    case cligCore::input::Keys::enter: {
+    case cligCore::input::Keys::Enter: {
       _current = current;
     }
-    case cligCore::input::Keys::escape: {
+    case cligCore::input::Keys::Escape: {
       return;
     }
     }
