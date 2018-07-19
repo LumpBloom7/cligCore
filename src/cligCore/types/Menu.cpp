@@ -14,22 +14,22 @@ int cligCore::types::Menu::show() {
   bool failcheck{};
   while ( true ) {
     switch ( cligCore::input::getKeyInput() ) {
-    case cligCore::input::Keys::up: {
+    case cligCore::input::Keys::Up: {
       _pointerLocation--;
       if ( _pointerLocation < 0 ) { _pointerLocation = numberOfOptions; }
       _printMenu();
       break;
     }
-    case cligCore::input::Keys::down: {
+    case cligCore::input::Keys::Down: {
       _pointerLocation++;
       if ( _pointerLocation > numberOfOptions ) { _pointerLocation = 0; }
       _printMenu();
       break;
     }
-    case cligCore::input::Keys::enter: {
+    case cligCore::input::Keys::Enter: {
       return _pointerLocation;
     }
-    case cligCore::input::Keys::escape: {
+    case cligCore::input::Keys::Escape: {
       return -1;
     }
     }
