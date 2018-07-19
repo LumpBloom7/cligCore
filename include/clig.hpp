@@ -42,6 +42,7 @@ namespace cligCore {
 
   namespace input {
     enum Keys {
+      Other = -1,
       Tab = 0,
       Backspace = 1,
       Return = 2,

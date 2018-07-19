@@ -126,6 +126,8 @@ cligCore::input::Keys cligCore::input::getKeyInput() {
     case 83: return Keys::Delete;
     case 113: return Keys::F11;
     case 114: return Keys::F12;
+    default: return Keys::Other;
     }
+  default: return Keys::Other;
   }
 }
