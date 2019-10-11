@@ -2,7 +2,7 @@
 
 namespace cligCore::input {
 	Keys getKeyInput() {
-		switch (getch()) {
+		switch (_getch()) {
 		case 8: return Keys::Backspace;
 		case 9: return Keys::Tab;
 		case 13: return Keys::Return;
@@ -104,7 +104,7 @@ namespace cligCore::input {
 		case 126: return Keys::Tilde;
 		case 0:
 		case 224:
-			switch (getch()) {
+			switch (_getch()) {
 			case 59: return Keys::F1;
 			case 60: return Keys::F2;
 			case 61: return Keys::F3;
