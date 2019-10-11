@@ -13,13 +13,11 @@
 #include <unistd.h>
 #endif
 
-namespace cligCore {
-	namespace console {
-		int getConsoleWidth();                 // Used to get the current Width of the console window
-		int getConsoleHeight();                // Used to get the current Height of the console window
-		void toggleEcho(const bool& enable); // Stops the console from printing anything if disabled.
-		std::string getPassword(const std::string& prompt); // Used to get the password of the user without exposing what they typed.
-		void clear();                      // This is used to clear the screen and reset any formatting changes.
-		void resetCursor();                // This is used to reset the cursor location back to the top-left.
-	}
+namespace cligCore::console {
+	int getConsoleWidth();                 // Used to get the current Width of the console window
+	int getConsoleHeight();                // Used to get the current Height of the console window
+	void toggleEcho(const bool& enable); // Stops the console from printing anything if disabled.
+	std::string getPassword(const std::string& prompt); // Used to get the password of the user without exposing what they typed.
+	void clear();                      // This is used to clear the screen and reset any formatting changes.
+	void resetCursor();                // This is used to reset the cursor location back to the top-left.
 }
