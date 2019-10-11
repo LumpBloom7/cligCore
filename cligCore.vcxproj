@@ -167,7 +167,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\console.cpp" />
+    <ClCompile Include="src\input.cpp" />
+    <ClCompile Include="src\types\Menu.cpp" />
+    <ClCompile Include="src\types\Range.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dep\rang.hpp" />
