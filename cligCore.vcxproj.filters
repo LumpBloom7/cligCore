@@ -30,10 +30,18 @@
     <ClInclude Include="inc\cligCore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="dep\rang.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include=".gitignore" />
+    <None Include="LICENSE" />
   </ItemGroup>
 </Project>
