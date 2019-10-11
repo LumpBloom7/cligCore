@@ -30,10 +30,10 @@ namespace cligCore::types {
 	void cligCore::types::Range::showChooser(const std::string& title) {
 		cligCore::console::clear();
 		int current = _current;
-		std::cout << title << "\n"
+		std::cout << rang::style::underline << title << rang::style::reset << "\n"
 			<< "Please select a value between " << _lower << " and " << _upper << "." << std::endl
 			<< std::endl
-			<< " < " << current << " > \r" << std::flush;
+			<< (current == _lower ? "   " : " < ") << current << (current == _upper ? "   " : " > ") << "                 \r" << std::flush;
 
 		bool failsafe = false;
 		while (true) {
@@ -45,13 +45,13 @@ namespace cligCore::types {
 			case cligCore::input::Keys::Right: {
 				if (current < _upper) current++;
 
-				std::cout << " < " << current << " > \r" << std::flush;
+				std::cout << (current == _lower ? "   " : " < ") << current << (current == _upper ? "   " : " > ") << "                 \r" << std::flush;
 				break;
 			}
 			case cligCore::input::Keys::Left: {
 				if (current > _lower) current--;
 
-				std::cout << " < " << current << " > \r" << std::flush;
+				std::cout << (current == _lower ? "   " : " < ") << current << (current == _upper ? "   " : " > ") << "                 \r" << std::flush;
 				break;
 			}
 			case cligCore::input::Keys::Enter: {
