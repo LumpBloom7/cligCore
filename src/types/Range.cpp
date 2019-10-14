@@ -63,4 +63,5 @@ namespace cligCore::types {
 			}
 		}
 	}
+	int Range::getCurrent() { return _current; }
 }
