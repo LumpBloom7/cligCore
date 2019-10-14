@@ -19,5 +19,5 @@ namespace cligCore::console {
 	void toggleEcho(const bool& enable); // Stops the console from printing anything if disabled.
 	std::string getPassword(const std::string& prompt); // Used to get the password of the user without exposing what they typed.
 	void clear();                      // This is used to clear the screen and reset any formatting changes.
-	void resetCursor();                // This is used to reset the cursor location back to the top-left.
+	void moveCursor(int x = 0, int y = 0);                // This is used to reset the cursor location back to the top-left.
 }

@@ -97,8 +97,8 @@ namespace cligCore::console {
 #endif
 	}
 
-	void resetCursor() {
-		COORD topLeft{ 0, 0 };
+	void moveCursor(int x, int y) {
+		COORD topLeft{ x, y };
 		HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 		SetConsoleCursorPosition(console, topLeft);
 	}
