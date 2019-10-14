@@ -60,7 +60,7 @@ namespace cligCore::types {
 
 	void cligCore::types::Menu::_printMenu() {
 		_updateMenu();
-		console::resetCursor();
+		console::moveCursor();
 		std::cout << rang::style::underline << _title << rang::style::reset << "\n";
 		if (_visibleRange.getLower() > 0)
 			std::cout << rang::fg::magenta << "[ MORE ABOVE ]\n" << rang::style::reset;
